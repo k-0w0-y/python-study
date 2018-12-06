@@ -1,3 +1,6 @@
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+
 def solution(N):
 
     binary = []
@@ -15,26 +18,31 @@ def solution(N):
         N = n
 
     binary_gap = 0
-    flag = 0
+    check_0 = 0
+    check_1 = 1
+
     t = 0
-    
-    print (binary)
+
     for i in binary[::-1]:
+        # print i
         if i == 0: 
-            t += 1
-            flag = 1 
+            check_0 = 1
+            t += 1 
         else:
-            if flag == 1:
+            if check_1 == 1 and check_0 == 1:
                 if binary_gap <= t:
                     binary_gap = t
-                    t = 0
+                t = 0
+                check_1 = 1
+                check_0 = 0
+
             else:
-                pass
-                
+                continue
+       
     return binary_gap
 
 def main():
-    print solution(74901729)
+    print solution(328)
 
 if __name__ == "__main__":
     main()
