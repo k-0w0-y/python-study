@@ -1,24 +1,19 @@
+
 def solution(A):
 
-    N = max(A)
-    n = min(A)
+    n = len(A)
 
-    l = []
-    for i in range(n, N+1):
-        l.append(i)
-
-
-    for i in l:
-        if i not in A:
-            result = i
-            break
+    a = int((n + 1 )* (n + 2) / 2)
+    b = 0
     
-    print result 
+    for i in range(0, n):
+        b += A[i]
 
+    return(a - b)
 
 def main():
-    A = [2, 3, 1, 5, 4, 8, 6]
-    solution(A)
+    A = [1, 3]
+    print solution(A)
 
 
 if __name__ == "__main__":
